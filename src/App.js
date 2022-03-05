@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import './App.css';
 
 function App() {
-  const [emotion, setEmotion] = useState('happy');
-  console.table(emotion);
+  const [checked, setChecked] = useState(false);
+
+  function toggle() {
+    setChecked((checked) => !checked);
+  }
   return (
     <>
-      <h1>Current emotion is {emotion}.</h1>
-      <button onClick={() => setEmotion('fascinated')}>Fascinate Me</button>
-      <button onClick={() => setEmotion('constipated')}>Constipate Me</button>
-      <button onClick={() => setEmotion('sublime')}>Sublime Me</button>
+      <input type="checkbox" value={checked} onChange={toggle} />
+      <p>{checked ? 'checked' : 'not checked'}</p>
     </>
   );
 }
